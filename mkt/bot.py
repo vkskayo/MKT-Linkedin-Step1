@@ -133,6 +133,9 @@ def extrairLinkEmpresas(self, caminho_arquivo_input_palavras_chave, caminho_arqu
    
    df = pd.read_excel(caminho_arquivo_queue)
    df_palavras_chave = pd.read_excel(caminho_arquivo_input_palavras_chave)
+   df_palavras_chave = df_palavras_chave[['Empresa']].dropna()
+
+   print(df_palavras_chave)
 
    for index, row in df_palavras_chave.iterrows():
         try:
@@ -207,6 +210,11 @@ def extrairLinkEmpresas(self, caminho_arquivo_input_palavras_chave, caminho_arqu
 def extrairInfoEmpresas(self, caminho_arquivo_empresas_queue, caminho_arquivo_empresas):
 
     df_queue = pd.read_excel(caminho_arquivo_empresas_queue)
+
+    if df_queue.empty:
+        #Enviar email notificando
+        raise Exception("A fila de execução da extração de empresas está vazia. Processo encerrado")
+    
     df = pd.DataFrame()
     
     for index, row in df_queue.iterrows():
