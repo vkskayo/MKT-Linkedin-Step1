@@ -131,6 +131,10 @@ def logout(self):
 
 def extrairLinkEmpresas(self, caminho_arquivo_input_palavras_chave, caminho_arquivo_queue):
    
+   if not os.path.isfile(caminho_arquivo_input_palavras_chave):
+     #ENVIAR EMAIL 
+     raise Exception("O arquivo de entrada contendo as palavras-chave não foi encontrado.") 
+   
    df = pd.read_excel(caminho_arquivo_queue)
    df_palavras_chave = pd.read_excel(caminho_arquivo_input_palavras_chave)
    df_palavras_chave = df_palavras_chave[['Empresa']].dropna()
