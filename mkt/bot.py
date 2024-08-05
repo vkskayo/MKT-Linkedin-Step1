@@ -31,7 +31,7 @@ import time
 import smtplib
 # Import the email modules we'll need
 import email.message
-from email.message import EmailMessage
+
 
 # Uncomment the line below for integrations with BotMaestro
 # Using the Maestro SDK
