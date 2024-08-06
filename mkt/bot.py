@@ -57,6 +57,10 @@ class Bot(WebBot):
         caminho_arquivo_empresas = os.getenv("CAMINHO_ARQUIVO_EMPRESAS")
         caminho_arquivo_empresas_queue = os.getenv("CAMINHO_ARQUIVO_EMPRESAS_QUEUE")
         caminho_arquivo_input_palavras_chave = os.getenv("CAMINHO_ARQUIVO_INPUT_PALAVRAS_CHAVE")
+
+        print(caminho_chrome_driver)
+        print(email)
+        print(caminho_arquivo_empresas)
         # Uncomment to set the WebDriver path
         self.driver_path = caminho_chrome_driver
 
