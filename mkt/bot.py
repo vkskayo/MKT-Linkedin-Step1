@@ -58,9 +58,6 @@ class Bot(WebBot):
         caminho_arquivo_empresas_queue = os.getenv("CAMINHO_ARQUIVO_EMPRESAS_QUEUE")
         caminho_arquivo_input_palavras_chave = os.getenv("CAMINHO_ARQUIVO_INPUT_PALAVRAS_CHAVE")
 
-        print(caminho_chrome_driver)
-        print(email)
-        print(caminho_arquivo_empresas)
         # Uncomment to set the WebDriver path
         self.driver_path = caminho_chrome_driver
 
@@ -142,8 +139,6 @@ def extrairLinkEmpresas(self, caminho_arquivo_input_palavras_chave, caminho_arqu
    df = pd.read_excel(caminho_arquivo_queue)
    df_palavras_chave = pd.read_excel(caminho_arquivo_input_palavras_chave)
    df_palavras_chave = df_palavras_chave[['Empresa']].dropna()
-
-   print(df_palavras_chave)
 
    for index, row in df_palavras_chave.iterrows():
         try:
@@ -357,7 +352,7 @@ def enviarEmail():
     msg['From'] = "vinicius.souza@dkr.tec.br"
     msg['To'] = "vkskayo@gmail.com"
 
-    password = 'vIni2020#'
+    password = ''
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
 

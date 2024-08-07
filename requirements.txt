@@ -3,6 +3,7 @@ botcity-maestro-sdk>=0.2.0,<1.0
 openpyxl
 python-dotenv
 pandas
+xlsxwriter
 # Uncomment to use botcity-utils
 #botcity-utils>=0.1.2
 # Uncomment to use botcity-crawler-plugin
