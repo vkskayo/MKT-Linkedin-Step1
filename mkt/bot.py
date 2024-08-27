@@ -44,7 +44,7 @@ class Bot(WebBot):
         #     self.maestro.RAISE_NOT_CONNECTED = False
 
         # Configure whether or not to run on headless mode
-        self.headless = False
+        self.headless = True
    
         # Uncomment to change the default Browser to Firefox
         # self.browser = Browser.FIREFOX
@@ -256,7 +256,7 @@ def extrairInfoEmpresas(self, caminho_arquivo_empresas_queue, caminho_arquivo_em
                 if elem == 'Tamanho da empresa':
                     tamanhoEmpresaFuncionarios = listDl[idx + 1]
                     if 'usuários associados' in listDl[idx + 2]:
-                        tamanhoEmpresaUsuarios = int(listDl[idx + 2].split(" ")[0])
+                        tamanhoEmpresaUsuarios = int(listDl[idx + 2].split(" ")[0].replace(".", ""))
 
                 if elem == 'Sede':
                     sede = listDl[idx + 1]
