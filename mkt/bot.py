@@ -43,7 +43,7 @@ class Bot(WebBot):
         # if self.maestro:
         #     self.maestro.RAISE_NOT_CONNECTED = False
 
-        self.headless = True
+        self.headless = False
    
         # Uncomment to change the default Browser to Firefox
         # self.browser = Browser.FIREFOX
@@ -196,7 +196,7 @@ def extrairLinkEmpresas(self, caminho_arquivo_input_palavras_chave, caminho_arqu
                     listaEmpresas = self.find_elements(selector='/html/body/div[5]/div[3]/div[2]/div/div[1]/main/div/div/div[2]/div/ul/li/div/div/div/div[2]/div/div[1]/div/span/span/a', by = By.XPATH)
                     for elem in listaEmpresas:
                         listaLinkEmpresa.append(elem.get_attribute("href"))
-                                        
+
                 if df.empty:
                         df = pd.DataFrame({'links': listaLinkEmpresa, 'Status': "Não processado"})
                         df.to_excel(caminho_arquivo_queue, index=False)
