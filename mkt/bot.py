@@ -43,23 +43,23 @@ class Bot(WebBot):
         # if self.maestro:
         #     self.maestro.RAISE_NOT_CONNECTED = False
 
-        self.headless = False
-   
+       
+
         # Uncomment to change the default Browser to Firefox
         # self.browser = Browser.FIREFOX
-        
         # Carregando variáveis de ambiente
         load_dotenv()
         caminho_chrome_driver = os.getenv("CAMINHO_CHROME_DRIVER")
         email = os.getenv("EMAIL")
         password = os.getenv("PASSWORD")
+        background = os.getenv("BACKGROUND")
         caminho_arquivo_empresas = os.getenv("CAMINHO_ARQUIVO_EMPRESAS")
         caminho_arquivo_empresas_queue = os.getenv("CAMINHO_ARQUIVO_EMPRESAS_QUEUE")
         caminho_arquivo_input_palavras_chave = os.getenv("CAMINHO_ARQUIVO_INPUT_PALAVRAS_CHAVE")
 
         # Uncomment to set the WebDriver path
         self.driver_path = caminho_chrome_driver
-
+        self.headless = background.upper() == 'TRUE'
         # Fetch the Activity ID from the task:
         # task = self.maestro.get_task(execution.task_id)
         # activity_id = task.activity_id
